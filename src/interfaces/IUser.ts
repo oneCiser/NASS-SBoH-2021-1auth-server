@@ -11,8 +11,9 @@ interface IUser extends Document{
     password: String,
     type_user: String,
     maxsize: Number,
-    directory: {type:[],required:false},
-    share_out: {type:[],required:false},
-    share_in: {type:[],required:false}
+    directory: [],
+    share_out: [],
+    share_in: [],
+    isValidPassword: Function
 }
 export default IUser;

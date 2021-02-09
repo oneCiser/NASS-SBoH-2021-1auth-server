@@ -12,7 +12,9 @@ const ResourceUserSchema: Schema<IUser> = new Schema({
   share_out: {type:[],required:false},
   share_in: {type:[],required:false}
 });
-
+/**
+ * @description genera un hash de el password cuando se crea el usuario o se actualiza la clave
+ */
 ResourceUserSchema.pre('save', async function (next) {
   const saltRound = 10
   let user = <IUser>this
@@ -24,6 +26,17 @@ ResourceUserSchema.pre('save', async function (next) {
   return next()
   
 })
+/**
+ * 
+ * @param {string} password
+ * @description compare the hash password of database with the password from client
+ * @returns {Promise} true is the passwords are the same
+ */
+ResourceUserSchema.methods.isValidPassword = async function name(password: string) {
+  const user = this
+  const compare = await bycrypt.compare(password,user.password)
+  return compare;
+}
 
 const ResourceUser: Model<IUser> = mongoose.model('ResourceUser', ResourceUserSchema);
 export default ResourceUser;
