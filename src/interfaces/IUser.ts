@@ -7,10 +7,10 @@ import { Document } from 'mongoose';
  * @extends {Document}
  */
 interface IUser extends Document{
-    user: { type: String, required: true },
-    password: {type: String, required:true},
-    type_user:{type:String, required:true},
-    maxsize: {type:Number,required:true},
+    user: String,
+    password: String,
+    type_user: String,
+    maxsize: Number,
     directory: {type:[],required:false},
     share_out: {type:[],required:false},
     share_in: {type:[],required:false}
