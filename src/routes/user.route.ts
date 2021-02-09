@@ -2,9 +2,9 @@ import {
   NextFunction, Request, Response, Router,
 } from 'express';
 import { IRoute } from '../interfaces';
-import { ResourceExampleControler } from '../controller';
+import { ResourceUserControler } from '../controller';
 import { isDefinedParamMiddleware, validationMiddleware } from '../middlewares';
-import { ExampleDTO } from '../dtos';
+import { UserDTO } from '../dtos';
 
 /**
  *
@@ -26,28 +26,28 @@ class ExampleRouter implements IRoute {
     this.router.get(
       this.pathIdParam,
       isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceExampleControler
+      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
         .getById(req, res, next),
     );
-    this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceExampleControler
+    this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserControler
       .list(req, res, next));
     this.router.post(
       '/',
-      validationMiddleware(ExampleDTO),
-      (req: Request, res: Response, next: NextFunction) => ResourceExampleControler
+      validationMiddleware(UserDTO),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
         .create(req, res, next),
     );
     this.router.put(
       this.pathIdParam,
       isDefinedParamMiddleware(),
-      validationMiddleware(ExampleDTO, true),
-      (req: Request, res: Response, next: NextFunction) => ResourceExampleControler
+      validationMiddleware(UserDTO, true),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
         .updateById(req, res, next),
     );
     this.router.delete(
       this.pathIdParam,
       isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceExampleControler
+      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
         .removeById(req, res, next),
     );
   }
