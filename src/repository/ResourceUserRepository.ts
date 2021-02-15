@@ -102,7 +102,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
   Promise<IUser | null > {
     const resourceToUpdate = await this.getById(id);
     if (resourceToUpdate) {
-      resourceToUpdate.user = resource.user;
+      resourceToUpdate.username = resource.username;
       await resourceToUpdate.update();
     }
     return resourceToUpdate;

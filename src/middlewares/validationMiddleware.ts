@@ -20,13 +20,13 @@ const validationMiddleware = (
   value: 'body' | 'query' | 'params' = 'body',
 ): RequestHandler => (req: Request, res: Response, next: NextFunction) => {
   // plainToClass is a mapping
-  
   validate(plainToClass(dto, req[value]), {
     validationError: { target: false },
     skipMissingProperties,
     whitelist: true,
     forbidUnknownValues: true,
   }).then((errors: ValidationError[]) => {
+    
     if (errors.length > 0) {
       
       const message = errors

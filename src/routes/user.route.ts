@@ -1,10 +1,12 @@
 import {
   NextFunction, Request, Response, Router,
 } from 'express';
-import { IRoute } from '../interfaces';
-import { ResourceUserControler } from '../controller';
-import { isDefinedParamMiddleware, validationMiddleware } from '../middlewares';
-import { UserDTO } from '../dtos';
+import { IRoute, IUser } from '../interfaces';
+import { ResourceUserController } from '../controller';
+import { isDefinedParamMiddleware, validationMiddleware, isRole } from '../middlewares';
+import { AuthDTO, UserDTO } from '../dtos';
+import passport from 'passport';
+import {ROLES} from '../utils'
 
 /**
  *
@@ -13,7 +15,7 @@ import { UserDTO } from '../dtos';
  * @class ExampleRouter
  * @implements {IRoute}
  */
-class ExampleRouter implements IRoute {
+class UserRouter implements IRoute {
   public router = Router();
 
   public pathIdParam = '/:id';
@@ -26,30 +28,38 @@ class ExampleRouter implements IRoute {
     this.router.get(
       this.pathIdParam,
       isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .getById(req, res, next),
     );
-    this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserControler
+    this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserController
       .list(req, res, next));
     this.router.post(
       '/',
       validationMiddleware(UserDTO),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
+      passport.authenticate('jwt',{session:false}),
+      isRole([ROLES.Admin]),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .create(req, res, next),
+    );
+    this.router.post(
+      '/login',
+      validationMiddleware(AuthDTO),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
+      .login(req, res, next),
     );
     this.router.put(
       this.pathIdParam,
       isDefinedParamMiddleware(),
       validationMiddleware(UserDTO, true),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .updateById(req, res, next),
     );
     this.router.delete(
       this.pathIdParam,
       isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserControler
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .removeById(req, res, next),
     );
   }
 }
-export default new ExampleRouter().router;
+export default new UserRouter().router;

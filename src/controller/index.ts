@@ -1,6 +1,6 @@
-import ResourceUserControler from './ResourceUserController';
+import ResourceUserController from './ResourceUserController';
 
 export {
   // eslint-disable-next-line import/prefer-default-export
-  ResourceUserControler,
+  ResourceUserController,
 };

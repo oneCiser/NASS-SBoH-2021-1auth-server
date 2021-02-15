@@ -17,7 +17,7 @@ const ResourceUserSchema: Schema<IUser> = new Schema({
  * @description genera un hash de el password cuando se crea el usuario o se actualiza la clave
  */
 ResourceUserSchema.pre('save', async function (next) {
-  const saltRound = process.env.SALT_ROUND || 10
+  const saltRound = parseInt(process.env.SALT_ROUND || '10',10)
   let user = <IUser>this
   if (this.isModified('password')){
     let hash =  await bycrypt.hash(user.password, saltRound)

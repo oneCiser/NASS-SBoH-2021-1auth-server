@@ -5,6 +5,7 @@ import { IUser } from '../interfaces';
 import { ResourceUser } from '../models';
 import { HttpException } from '../exceptions';
 import { ResourceService } from '../services';
+import {encodeUser} from '../utils'
 
 /**
  *
@@ -44,7 +45,9 @@ class ResourceUserController {
    * @memberof ResourceUserController
    */
   public static async create(req: Request, res: Response, next: NextFunction) {
+    
     try {
+      
       const property = req.body;
       const resource:IUser = new ResourceUser(property);
       const resourceSaved: IUser = await ResourceService.create(resource);
@@ -53,6 +56,33 @@ class ResourceUserController {
       return next(new HttpException(error.status || 500, error.message));
     }
   }
+
+  public static async login(req: Request, res:Response, next: NextFunction){
+    try {
+      const property = req.body;
+      
+      const user: IUser | null = await ResourceService.getByUsername(property.username);
+      if(!user) throw new HttpException(401, "Not Authorized");
+      const isValid = await user.isValidPassword(property.password)
+      if(isValid){
+        res.json ({
+          access_token: encodeUser({
+            username: property.username,
+            type_user: property.type_user
+          }),
+          username: property.username
+        })
+      }
+      else {
+        return next(new HttpException(401, "Not Authorized"));
+      }
+      
+    } catch (error) {
+      return next(new HttpException(error.status || 500, error.message));
+    }
+  }
+
+
 
   /**
    *
