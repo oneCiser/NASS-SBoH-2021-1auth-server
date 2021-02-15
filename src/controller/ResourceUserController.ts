@@ -29,6 +29,7 @@ class ResourceUserController {
       res.json(resources);
     } catch (error) {
       return next(new HttpException(error.status || 500, error.message));
+      
     }
   }
 

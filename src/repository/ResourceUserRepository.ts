@@ -43,6 +43,15 @@ class ResourceUserRepository implements ICrud<IUser, string> {
   async getById(id: string): Promise<IUser | null> {
     return ResourceUser.findById(id);
   }
+  /**
+   * 
+   * @param {string} username - username
+   * @return {Promise<IUser>} resource user
+   * @memberof Resourceepository
+   */
+  async getByUsername(username: string): Promise<IUser | null> {
+    return await ResourceUser.findOne({username});
+  }
 
   /**
    *

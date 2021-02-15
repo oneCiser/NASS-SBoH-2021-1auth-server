@@ -7,8 +7,9 @@ import { Document } from 'mongoose';
  * @extends {Document}
  */
 interface IUser extends Document{
-    user: String,
+    username: String,
     password: String,
+    email: String,
     type_user: String,
     maxsize: Number,
     directory: [],

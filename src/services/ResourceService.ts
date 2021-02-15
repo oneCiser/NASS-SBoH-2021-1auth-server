@@ -42,6 +42,15 @@ class ResourceService implements ICrud<IUser, string> {
   async getById(id: string): Promise<IUser | null> {
     return ResourceUserRepository.getById(id);
   }
+  /**
+   * 
+   * @param username 
+   * @return {Promise<IUser>}
+   * @memberof ResourceService
+   */
+  async getByUsername(username: string): Promise<IUser | null> {
+    return ResourceUserRepository.getByUsername(username);
+  }
 
   /**
    *
