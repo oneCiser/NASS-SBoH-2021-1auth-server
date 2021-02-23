@@ -6,7 +6,13 @@ import { HttpException } from '../exceptions';
 import { plainToClass } from 'class-transformer';
 import {UserDTO} from '../dtos'
 
-
+/**
+ *
+ * Valid of Role
+ * @category Middlewares
+ * @param {any[]} roles - true if should accept propertys unknow
+ * @return {*}  {RequestHandler}
+ */
 const isRole = (roles:any[]):RequestHandler => (req: Request, res: Response, next: NextFunction) =>
 {
     try {
