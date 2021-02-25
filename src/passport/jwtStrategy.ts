@@ -7,6 +7,7 @@ import { HttpException } from '../exceptions';
 import '../config/dotenv';
 
 /**
+ * @memberof JWTStrategy
  * @type options of jwt strategy
  */
 const opt: StrategyOptions = {
@@ -14,6 +15,7 @@ const opt: StrategyOptions = {
     secretOrKey: process.env.JWT_SECRET || 'secret'
 }
 /**
+ * @memberof JWTStrategy
  * @description strategy of jwt in passport
  */
 export default new Strategy(opt,

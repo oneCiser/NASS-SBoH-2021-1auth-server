@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 /**
- * Define a interface of resource to managament with mongoose
+ * the structure of token
  * @category Interfaces
  * @interface IToken
  * @extends {Document}

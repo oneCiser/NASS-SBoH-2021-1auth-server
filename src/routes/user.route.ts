@@ -17,7 +17,7 @@ import {ROLES,tokenType} from '../utils'
  *
  * Managament the routes of resource
  * @category Routes
- * @class ExampleRouter
+ * @class Auth routes
  * @implements {IRoute}
  */
 class UserRouter implements IRoute {

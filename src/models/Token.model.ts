@@ -3,7 +3,11 @@ import { IToken } from '../interfaces';
 import {tokenType} from '../utils'
 import '../config/dotenv';
 import bycrypt from 'bcrypt';
-
+/**
+ * @category Model
+ * @name TokenSchema
+ * @description schema of token restore
+ */
 const TokenSchema: Schema<IToken> = new Schema({
   email: {type: String, required:true, unique: true},
   hashKey: {type:String},

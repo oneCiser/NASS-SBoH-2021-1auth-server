@@ -5,7 +5,7 @@ import { IsString, IsNotEmpty} from 'class-validator';
  * 
  * @category DTOs
  * @class AuthDTO
- * @param {string} email- the tile of resource
+ * @param {string} email email of the user
  */
 class EmailDTO {
     @IsString()
@@ -14,7 +14,7 @@ class EmailDTO {
 
     /**
      * 
-     * @param email 
+     * @param email email of the user
      * @memberof EmailDTO
      */
     constructor(email:string){

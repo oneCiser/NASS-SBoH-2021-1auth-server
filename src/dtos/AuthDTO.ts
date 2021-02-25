@@ -19,8 +19,8 @@ class AuthDTO {
 
     /**
      * 
-     * @param username 
-     * @param password
+     * @param username username of user
+     * @param password password of user
      * @memberof AuthDTO
      */
     constructor(username:string, password:string){

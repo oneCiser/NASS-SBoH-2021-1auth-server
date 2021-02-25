@@ -8,7 +8,7 @@ import { Token } from '../models';
  *
  * The repository of resources
  * @category Repositorys
- * @class ResourceRepository
+ * @class TokenRepository
  * @implements {ICrud<IToken, string>}
  */
 class TokenRepository implements ICrud<IToken, string> {

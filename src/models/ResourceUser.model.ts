@@ -3,7 +3,11 @@ import { IUser } from '../interfaces';
 import bycrypt from 'bcrypt';
 import '../config/dotenv';
 import {hashPassword} from '../utils';
-
+/**
+ * @category Model
+ * @name ResourceUserSchema
+ * @description schema of user
+ */
 const ResourceUserSchema: Schema<IUser> = new Schema({
   username: { type: String, required: true, unique: true },
   email: {type: String, required:true, unique: true},

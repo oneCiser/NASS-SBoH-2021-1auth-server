@@ -35,11 +35,11 @@ class UserDTO {
 
     /**
    * Creates an instance of UserDTO.
-   * @param {string} username- the tile of resource
-   * @param {string} email
-   * @param {string} name
-   * @param {string} type_user
-   * @param {number} maxsize
+   * @param {string} username username
+   * @param {string} email email
+   * @param {string} name the name of user
+   * @param {string} type_user type of user
+   * @param {number} maxsize maxsize of capacity
    * @memberof UserDTO
    */
     constructor(username: string,  email:string, name:string,type_user: string, maxsize: number) {
