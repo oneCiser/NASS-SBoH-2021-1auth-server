@@ -6,23 +6,22 @@ import { HttpException } from '../exceptions';
 
 /**
  *
- * Valid of Role
+ * Valid of token type
  * @category Middlewares
- * @param {any[]} roles - roles of the route
+ * @param {any[]} type - types of tokens
  * @return {*}  {RequestHandler}
  */
-const isRole = (roles:any[]):RequestHandler => (req: Request, res: Response, next: NextFunction) =>
+const isTokenTypeMiddleware = (types:any[]):RequestHandler => (req: Request, res: Response, next: NextFunction) =>
 {
     try {
         if(!req.user) next(new HttpException(403, 'Forbidden'))
         else{
             const token = <IPayLoad>req.user
-            const user = <IUser>token.user
-            const hasRole = roles.find(role => {
+            const hasToken = types.find(type => {
                 
-                return user.type_user == role})
+                return token.token_type == type})
             
-            if(hasRole) next()
+            if(hasToken) next()
             else{
                 next(new HttpException(403, 'Forbidden'))
             }
@@ -34,5 +33,5 @@ const isRole = (roles:any[]):RequestHandler => (req: Request, res: Response, nex
 }
 
 export {
-    isRole
+    isTokenTypeMiddleware
 }

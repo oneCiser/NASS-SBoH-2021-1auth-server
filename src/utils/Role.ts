@@ -1,3 +1,7 @@
+
+/**
+ * @enum roles of user
+ */
 const ROLES = {
     Admin:'ADMIN',
     Client:'CLIENT'

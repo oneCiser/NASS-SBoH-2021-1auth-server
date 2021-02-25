@@ -21,10 +21,10 @@ class UserDTO {
     public username: string;
     @IsNotEmpty()
     @IsString()
-    public password: string;
+    public email: string;
     @IsNotEmpty()
     @IsString()
-    public email: string;
+    public name: string;
     @IsNotEmpty()
     @IsString()
     public type_user: string;
@@ -36,16 +36,16 @@ class UserDTO {
     /**
    * Creates an instance of UserDTO.
    * @param {string} username- the tile of resource
-   * @param {string} password
    * @param {string} email
+   * @param {string} name
    * @param {string} type_user
    * @param {number} maxsize
    * @memberof UserDTO
    */
-    constructor(username: string, password: string, email:string,type_user: string, maxsize: number) {
+    constructor(username: string,  email:string, name:string,type_user: string, maxsize: number) {
       this.username = username;
-      this.password = password;
       this.email = email;
+      this.name = name
       this.type_user = type_user;
       this.maxsize = maxsize;
     }

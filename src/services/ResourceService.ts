@@ -1,7 +1,10 @@
 /* eslint-disable class-methods-use-this */
-import { ICrud, IUser } from '../interfaces';
-import { ResourceUserRepository } from '../repository';
-import { ResourceUser } from '../models';
+import { ICrud, IPayLoad, IToken, IUser } from '../interfaces';
+import { ResourceUserRepository,TokenRepository } from '../repository';
+import { ResourceUser, Token } from '../models';
+import nodemailer from 'nodemailer';
+import '../config/dotenv';
+import {encodeUser, tokenType, sendMail, hashPassword} from '../utils';
 
 /**
  *
@@ -44,12 +47,61 @@ class ResourceService implements ICrud<IUser, string> {
   }
   /**
    * 
-   * @param username 
+   * @param {string} username 
    * @return {Promise<IUser>}
    * @memberof ResourceService
    */
   async getByUsername(username: string): Promise<IUser | null> {
     return ResourceUserRepository.getByUsername(username);
+  }
+
+  /**
+   * 
+   * @param {string} email 
+   * @return {Promise<boolean>}
+   * @memberof ResourceService
+   */
+  async forgotPassword(email: string): Promise<boolean| null> {
+    try {
+      const user = await ResourceUserRepository.getByEmail(email);
+      if(user){
+        const expire = Date.now();
+        const hashKey = hashPassword(email + '-' + expire);
+        const saveToken:IToken = new Token({
+          email:email,
+          hashKey:hashKey,
+          createdAt:expire
+        });
+
+        const oldToken = await TokenRepository.getByEmail(email);
+        if(oldToken) await TokenRepository.removeById(oldToken._id);
+
+        const newToken = await TokenRepository.create(saveToken);
+        if(!newToken) return false;
+        const token = encodeUser({
+          username: user.username,
+          type_user: user.type_user,
+          token_type:tokenType.Restore,
+          exp: expire/1000 + 60 * 60,
+          createdAt:expire
+        });
+        
+        const res = sendMail(
+          email,
+          "Restore password",
+          `http://localhost:3000/api/auth/forgot/${token}`,
+          "");
+
+        return res;
+      }
+      else{
+        return false;
+      }
+
+
+    } catch (error) {
+      return false;
+    }
   }
 
   /**
@@ -98,8 +150,10 @@ class ResourceService implements ICrud<IUser, string> {
   async updateById(id: string, body: Object): Promise<IUser | null > {
     // eslint-disable-next-line no-unused-vars
     return new Promise<IUser | null>((resolve, _) => {
-      ResourceUser.findOneAndUpdate({ _id: id }, { ...body }, { new: true },
-        (error, task: IUser | null) => resolve(task));
+      ResourceUser.findOneAndUpdate({ _id: id}, { ...body }, { new: true },
+        (error, task: IUser | null) => {
+          if(error) console.log(error)
+          resolve(task)});
     });
   }
 }

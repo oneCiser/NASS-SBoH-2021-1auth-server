@@ -6,18 +6,28 @@ import { IUser } from 'interfaces';
 import { HttpException } from '../exceptions';
 import '../config/dotenv';
 
+/**
+ * @type options of jwt strategy
+ */
 const opt: StrategyOptions = {
     jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.JWT_SECRET || 'secret'
 }
-
+/**
+ * @description strategy of jwt in passport
+ */
 export default new Strategy(opt,
     async function(jwt_payload, done) {
     try {
         
         const user: IUser | null = await ResourceService.getByUsername(jwt_payload.username);
         if(user){
-            return done(null, user);
+            const token = {
+                user:user,
+                token_type:jwt_payload.token_type,
+                createdAt:jwt_payload.createdAt
+            }
+            return done(null, token);
         }
         else{
             throw new HttpException(401, 'Authentication failed');

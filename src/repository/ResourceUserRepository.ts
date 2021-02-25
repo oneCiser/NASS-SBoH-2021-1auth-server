@@ -54,6 +54,16 @@ class ResourceUserRepository implements ICrud<IUser, string> {
   }
 
   /**
+   * 
+   * @param {string} email
+   * @return {Promise<IUser>} reource user
+   * @memberof Resourceepository 
+   */
+  async getByEmail(email: string): Promise<IUser | null> {
+    return await ResourceUser.findOne({email});
+  }
+
+  /**
    *
    *
    * @param {IUser} resource - The resource to remove

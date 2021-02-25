@@ -3,10 +3,15 @@ import {
 } from 'express';
 import { IRoute, IUser } from '../interfaces';
 import { ResourceUserController } from '../controller';
-import { isDefinedParamMiddleware, validationMiddleware, isRole } from '../middlewares';
-import { AuthDTO, UserDTO } from '../dtos';
+import { 
+  isDefinedParamMiddleware, 
+  validationMiddleware, 
+  isRole,
+  isTokenTypeMiddleware
+} from '../middlewares';
+import { AuthDTO, EmailDTO, UserDTO } from '../dtos';
 import passport from 'passport';
-import {ROLES} from '../utils'
+import {ROLES,tokenType} from '../utils'
 
 /**
  *
@@ -25,28 +30,64 @@ class UserRouter implements IRoute {
   }
 
   createRoutes(): void {
+
+    /**
+     * @description get user by id
+     */
     this.router.get(
       this.pathIdParam,
       isDefinedParamMiddleware(),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .getById(req, res, next),
     );
-    this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserController
+        this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserController
       .list(req, res, next));
+
+    /**
+     * @description send message for restore password
+     */
+    this.router.post(
+      '/forgot',
+      validationMiddleware(EmailDTO),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
+      .forgotPassword(req, res, next)
+
+    )
+
+
+    this.router.put(
+      '/restore',
+      passport.authenticate('jwt',{session:false}),
+      isTokenTypeMiddleware([tokenType.Restore]),
+      (req: Request, res: Response, next: NextFunction) => ResourceUserController
+      .restorePassword(req, res, next)
+    )
+
+    /**
+     * @description create new user
+     */
     this.router.post(
       '/',
       validationMiddleware(UserDTO),
       passport.authenticate('jwt',{session:false}),
       isRole([ROLES.Admin]),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .create(req, res, next),
+        .create(req, res, next)
     );
+
+    /**
+     * @description login user
+     */
     this.router.post(
       '/login',
       validationMiddleware(AuthDTO),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
       .login(req, res, next),
     );
+
+    /**
+     * @description update user by id
+     */
     this.router.put(
       this.pathIdParam,
       isDefinedParamMiddleware(),
@@ -54,12 +95,17 @@ class UserRouter implements IRoute {
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .updateById(req, res, next),
     );
+
+    /**
+     * @description delete user by id
+     */
     this.router.delete(
       this.pathIdParam,
       isDefinedParamMiddleware(),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
         .removeById(req, res, next),
     );
+
   }
 }
 export default new UserRouter().router;
