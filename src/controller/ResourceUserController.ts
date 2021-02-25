@@ -5,7 +5,7 @@ import { IPayLoad, IUser } from '../interfaces';
 import { ResourceUser } from '../models';
 import { HttpException } from '../exceptions';
 import { ResourceService, TokenService } from '../services';
-import {encodeUser, hashPassword,tokenType} from '../utils'
+import {encodeUser, hashPassword,tokenType, sendMail} from '../utils'
 
 /**
  *
@@ -53,6 +53,10 @@ class ResourceUserController {
       console.log(property.password);
       const resource:IUser = new ResourceUser(property);
       const resourceSaved: IUser = await ResourceService.create(resource);
+      sendMail(<string>resourceSaved.email,"NASS - New user",
+      "New user: "+resourceSaved.username+" with password: "+property.password,
+      ""
+      );
       res.json({username:resourceSaved.username});
     } catch (error) {
       return next(new HttpException(error.status || 500, error.message));
