@@ -62,7 +62,7 @@ class TokenService implements ICrud<IToken, string> {
   }
   /**
    * 
-   * @param {string} username 
+   * @param {string} email email of restore token
    * @return {Promise<IToken>}
    * @memberof TokenService
    */
