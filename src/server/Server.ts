@@ -40,7 +40,7 @@ class Server {
   constructor(private port: number) {
     this.app = express();
     this.env = process.env.NODE_ENV || 'development';
-    this.initizalizaePassport()
+    this.initizalizaePassport();
     this.initializeMiddlewares();
     
     this.initializeRoutes();
@@ -90,6 +90,12 @@ class Server {
     
   }
 
+   /**
+   *
+   * Initialize of passport
+   * @private
+   * @memberof Server
+   */
   private initizalizaePassport(){
     this.app.use(passport.initialize())
     passport.use(jwtStrategy);
