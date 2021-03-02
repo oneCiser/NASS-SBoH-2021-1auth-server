@@ -5,9 +5,10 @@ const router = Router();
 const prefix: string = '/api';
 /**
  * @name api/auth
+ * @category Routes
  * @function
  * @description auth route
- * @memberof module:routers/auth~usersRouter
+ * @memberof module:routers
  * @inner
  * @param {string} path - Express path
  * @param {Router} route - routes of

@@ -17,6 +17,7 @@ import {ROLES,tokenType} from '../utils'
  *
  * Managament the routes of resource
  * @category Routes
+ * @memberof module:routers/auth~usersRouter
  * @class Auth routes
  * @implements {IRoute}
  */
@@ -35,6 +36,7 @@ class UserRouter implements IRoute {
 
     /**
      * @name auth/forgot
+     * @category Routes
      * @function
      * @description send email to restore password
      * @memberof module:routers/auth~usersRouter
@@ -53,6 +55,7 @@ class UserRouter implements IRoute {
 
     /**
      * @name auth/restore
+     * @category Routes
      * @function
      * @description change forgot password
      * @memberof module:routers/auth~usersRouter
@@ -72,6 +75,7 @@ class UserRouter implements IRoute {
 
     /**
      * @name auth/forgot
+     * @category Routes
      * @function
      * @description create user by admin
      * @memberof module:routers/auth~usersRouter
@@ -93,6 +97,7 @@ class UserRouter implements IRoute {
 
     /**
      * @name auth/login
+     * @category Routes
      * @function
      * @description auth user
      * @memberof module:routers/auth~usersRouter
@@ -110,6 +115,7 @@ class UserRouter implements IRoute {
 
     /**
      * @name auth/changepasswd
+     * @category Routes
      * @function
      * @description change password
      * @memberof module:routers/auth~usersRouter
