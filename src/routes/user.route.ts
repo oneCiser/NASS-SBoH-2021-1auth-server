@@ -17,11 +17,11 @@ import {ROLES,tokenType} from '../utils'
  *
  * Managament the routes of resource
  * @category Routes
- * @memberof module:routers/auth~usersRouter
- * @class Auth routes
+ * @class User routes
  * @implements {IRoute}
  */
 class UserRouter implements IRoute {
+  
   public router = Router();
 
   public pathIdParam = '/:id';
@@ -31,15 +31,13 @@ class UserRouter implements IRoute {
   }
 
   createRoutes(): void {
-
- 
+    
 
     /**
      * @name auth/forgot
-     * @category Routes
      * @function
+     * @memberof module:routers/auth~userRouter
      * @description send email to restore password
-     * @memberof module:routers/auth~usersRouter
      * @inner
      * @param {string} path - Express path
      * @param {callback} validationMiddleware - validation of req.body
@@ -58,7 +56,7 @@ class UserRouter implements IRoute {
      * @category Routes
      * @function
      * @description change forgot password
-     * @memberof module:routers/auth~usersRouter
+     * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
      * @param {callback} authenticate - authenticate restore JWT
@@ -78,7 +76,7 @@ class UserRouter implements IRoute {
      * @category Routes
      * @function
      * @description create user by admin
-     * @memberof module:routers/auth~usersRouter
+     * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
      * @param {callback} validationMiddleware - validation of req.body
@@ -100,7 +98,7 @@ class UserRouter implements IRoute {
      * @category Routes
      * @function
      * @description auth user
-     * @memberof module:routers/auth~usersRouter
+     * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
      * @param {callback} validationMiddleware - validation of req.body
@@ -118,7 +116,7 @@ class UserRouter implements IRoute {
      * @category Routes
      * @function
      * @description change password
-     * @memberof module:routers/auth~usersRouter
+     * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
      * @param {callback} validationMiddleware - validation of req.body

@@ -1,17 +1,12 @@
 import { Router } from 'express';
 import userRouter from './user.route';
-
+/**
+ * @module routers/auth
+ */
 const router = Router();
 const prefix: string = '/api';
 /**
- * @name api/auth
- * @category Routes
- * @function
- * @description auth route
- * @memberof module:routers
- * @inner
- * @param {string} path - Express path
- * @param {Router} route - routes of
+ * @namespace userRouter
  */
 router.use(`${prefix}/auth`, userRouter);
 
