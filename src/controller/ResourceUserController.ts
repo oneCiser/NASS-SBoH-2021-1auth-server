@@ -32,7 +32,6 @@ class ResourceUserController {
       
       const property = req.body;
       property.password = Math.random().toString(36).slice(-8);
-      console.log(property.password);
       const resource:IUser = new ResourceUser(property);
       const resourceSaved: IUser = await ResourceService.create(resource);
       sendMail(<string>resourceSaved.email,"NASS - New user",
