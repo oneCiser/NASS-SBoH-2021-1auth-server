@@ -4,7 +4,7 @@ import { IsString, IsNotEmpty} from 'class-validator';
  *
  * 
  * @category DTOs
- * @class AuthDTO
+ * @class EmailDTO
  * @param {string} email email of the user
  */
 class EmailDTO {
