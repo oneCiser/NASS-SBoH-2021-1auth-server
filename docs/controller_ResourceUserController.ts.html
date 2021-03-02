@@ -85,7 +85,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="AuthDTO.AuthDTO.html">AuthDTO</a></li><li><a href="Database.html">Database</a></li><li><a href="EmailDTO.EmailDTO.html">EmailDTO</a></li><li><a href="HttpException.HttpException.html">HttpException</a></li><li><a href="Server.html">Server</a></li><li><a href="Server.Server.html">Server</a></li><li><a href="UserDTO.UserDTO.html">UserDTO</a></li></ul><h3>Global</h3><ul><li><a href="global.html#hashPassword">hashPassword</a></li><li><a href="global.html#ROLES">ROLES</a></li><li><a href="global.html#sendMail">sendMail</a></li><li><a href="global.html#tokenType">tokenType</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="ResourceUserController.html">ResourceUserController</a></li></ul></div><div class="category"><h2>DTOs</h2><h3>Classes</h3><ul><li><a href="AuthDTO.html">AuthDTO</a></li><li><a href="EmailDTO.html">EmailDTO</a></li><li><a href="UserDTO.html">UserDTO</a></li></ul></div><div class="category"><h2>Exceptions</h2><h3>Classes</h3><ul><li><a href="HttpException.html">HttpException</a></li></ul><h3>Global</h3><ul><li><a href="global.html#errorHandler">errorHandler</a></li></ul></div><div class="category"><h2>Interfaces</h2><h3>Interfaces</h3><ul><li><a href="ICrud.html">ICrud</a></li><li><a href="IPayLoad.html">IPayLoad</a></li><li><a href="IRoute.html">IRoute</a></li><li><a href="IToken.html">IToken</a></li><li><a href="IUser.html">IUser</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Global</h3><ul><li><a href="global.html#isDefinedParam">isDefinedParam</a></li><li><a href="global.html#isRole">isRole</a></li><li><a href="global.html#isTokenTypeMiddleware">isTokenTypeMiddleware</a></li><li><a href="global.html#validationMiddleware">validationMiddleware</a></li></ul></div><div class="category"><h2>Model</h2><h3>Global</h3><ul><li><a href="global.html#ResourceUserSchema">ResourceUserSchema</a></li><li><a href="global.html#TokenSchema">TokenSchema</a></li></ul></div><div class="category"><h2>Repositorys</h2><h3>Classes</h3><ul><li><a href="ResourceRepository.html">ResourceRepository</a></li><li><a href="TokenRepository.html">TokenRepository</a></li></ul></div><div class="category"><h2>Routes</h2><h3>Classes</h3><ul><li><a href="UserRouter.html">UserRouter</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="ResourceService.html">ResourceService</a></li><li><a href="TokenService.html">TokenService</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="AuthDTO.AuthDTO.html">AuthDTO</a></li><li><a href="Database.html">Database</a></li><li><a href="EmailDTO.EmailDTO.html">EmailDTO</a></li><li><a href="HttpException.HttpException.html">HttpException</a></li><li><a href="PasswdDTO.PasswdDTO.html">PasswdDTO</a></li><li><a href="Server.html">Server</a></li><li><a href="Server.Server.html">Server</a></li><li><a href="UserDTO.UserDTO.html">UserDTO</a></li></ul><h3>Global</h3><ul><li><a href="global.html#hashPassword">hashPassword</a></li><li><a href="global.html#ROLES">ROLES</a></li><li><a href="global.html#sendMail">sendMail</a></li><li><a href="global.html#tokenType">tokenType</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="ResourceUserController.html">ResourceUserController</a></li></ul></div><div class="category"><h2>DTOs</h2><h3>Classes</h3><ul><li><a href="AuthDTO.html">AuthDTO</a></li><li><a href="EmailDTO.html">EmailDTO</a></li><li><a href="PasswdDTO.html">PasswdDTO</a></li><li><a href="UserDTO.html">UserDTO</a></li></ul></div><div class="category"><h2>Exceptions</h2><h3>Classes</h3><ul><li><a href="HttpException.html">HttpException</a></li></ul><h3>Global</h3><ul><li><a href="global.html#errorHandler">errorHandler</a></li></ul></div><div class="category"><h2>Interfaces</h2><h3>Interfaces</h3><ul><li><a href="ICrud.html">ICrud</a></li><li><a href="IPayLoad.html">IPayLoad</a></li><li><a href="IRoute.html">IRoute</a></li><li><a href="IToken.html">IToken</a></li><li><a href="IUser.html">IUser</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Global</h3><ul><li><a href="global.html#isDefinedParam">isDefinedParam</a></li><li><a href="global.html#isRole">isRole</a></li><li><a href="global.html#isTokenTypeMiddleware">isTokenTypeMiddleware</a></li><li><a href="global.html#validationMiddleware">validationMiddleware</a></li></ul></div><div class="category"><h2>Model</h2><h3>Global</h3><ul><li><a href="global.html#ResourceUserSchema">ResourceUserSchema</a></li><li><a href="global.html#TokenSchema">TokenSchema</a></li></ul></div><div class="category"><h2>Repositorys</h2><h3>Classes</h3><ul><li><a href="ResourceRepository.html">ResourceRepository</a></li><li><a href="TokenRepository.html">TokenRepository</a></li></ul></div><div class="category"><h2>Routes</h2><h3>Classes</h3><ul><li><a href="UserRouter.html">UserRouter</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="ResourceService.html">ResourceService</a></li><li><a href="TokenService.html">TokenService</a></li></ul></div>
                 
             </nav>
         </div>
@@ -118,25 +118,7 @@ import {encodeUser, hashPassword,tokenType, sendMail} from '../utils'
  * @class ResourceUserController
  */
 class ResourceUserController {
-  /**
-   *
-   * List all resources
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resources
-   * @memberof ResourceUserController
-   */
-  public static async list(req: Request, res: Response, next: NextFunction) {
-    try {
-      const resources: Array&lt;IUser> = await ResourceService.list();
-      res.json(resources);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-      
-    }
-  }
+  
 
   /**
    *
@@ -251,30 +233,11 @@ class ResourceUserController {
     }
   }
 
-  /**
-   *
-   * Get resource by id
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resources
-   * @memberof ResourceUserController
-   */
-  public static async getById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const resource: IUser | null = await ResourceService.getById(id);
-      if (!resource) throw new HttpException(404, 'Resource not found');
-      res.json(resource);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-    }
-  }
+  
 
   /**
    *
-   * Remove tasresource by id
+   * Update password by user
    * @static
    * @param {Request} req - The request
    * @param {Response} res - The response
@@ -282,34 +245,13 @@ class ResourceUserController {
    * @return {JSON} - A list of resourceS
    * @memberof ResourceUserController
    */
-  public static async removeById(req: Request, res: Response, next: NextFunction) {
+  public static async changePassword(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = req.params;
-      const resource: IUser | null = await ResourceService
-        .removeById(id);
-      if (!resource) throw new HttpException(404, 'Resource not found');
-      res.json(resource);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-    }
-  }
-
-  /**
-   *
-   * Update resource by id
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resourceS
-   * @memberof ResourceUserController
-   */
-  public static async updateById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
+      const token = &lt;IPayLoad>req.user
+      const user = &lt;IUser>token.user;
       const update = req.body;
       const resourceUpdated: IUser | null = await ResourceService
-        .updateById(id, update);
+        .updateById(user._id, update);
       if (!resourceUpdated) throw new HttpException(404, 'resource not found');
       res.json(resourceUpdated);
     } catch (error) {

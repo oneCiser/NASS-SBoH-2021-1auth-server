@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation models/ResourceUser.model.ts</title>
+  <title>Documentation PasswdDTO</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -92,73 +90,212 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>models/ResourceUser.model.ts</h1>
+                    <p>Class</p>
+                    <h1>PasswdDTO</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import mongoose, { Model, Schema } from 'mongoose';
-import { IUser } from '../interfaces';
-import bycrypt from 'bcrypt';
-import '../config/dotenv';
-import {hashPassword} from '../utils';
-/**
- * @category Model
- * @name ResourceUserSchema
- * @description schema of user
- */
-const ResourceUserSchema: Schema&lt;IUser> = new Schema({
-  username: { type: String, required: true, unique: true },
-  email: {type: String, required:true, unique: true},
-  password: {type: String, required:true},
-  name: {type: String, required:true},
-  type_user:{type:String, required:true},
-  maxsize: {type:Number,required:true},
-  directory: {type:[],required:false},
-  share_out: {type:[],required:false},
-  share_in: {type:[],required:false}
-});
-/**
- * @description genera un hash de el password cuando se crea el usuario o se actualiza la clave
- */
-ResourceUserSchema.pre('save', async function (next) {
-  let user = &lt;IUser>this;
-  if (this.isModified('password')){
-    user.password = hashPassword(user.password);
-    return next();
-  }
-  return next();
+        <h2><span class="attribs"><span class="type-signature"></span></span>PasswdDTO<span class="signature">(password)</span><span class="type-signature"></span></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
+
+
+    
+    <h4 class="name" id="PasswdDTO">
+        <a class="href-link" href="#PasswdDTO">#</a>
+        
+        <span class="code-name">
+            
+                new PasswdDTO<span class="signature">(password)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
   
-});
+      <td class="name"><code>password</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">string</span>
 
 
-/**
- * 
- * @param {string} password
- * @description compare the hash password of database with the password from client
- * @returns {Promise} true if the passwords are the same
- */
-ResourceUserSchema.methods.isValidPassword = async function(password: string) {
-  const user = this
-  const compare = await bycrypt.compare(password,user.password)
-  return compare;
-}
+  
+  </td>
 
-ResourceUserSchema.methods.hashPassword = async function (password: string) {
-  const saltRound = parseInt(process.env.SALT_ROUND || '10',10);
-  return await bycrypt.hash(password, saltRound);
-}
+  
 
-const ResourceUser: Model&lt;IUser> = mongoose.model('ResourceUser', ResourceUserSchema);
-export default ResourceUser;
-</code></pre>
-        </article>
-    </section>
+  
+
+  <td class="description last">password of user</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="dtos_PasswdDTO.ts.html" class="button">View Source</a>
+            <span>
+                <a href="dtos_PasswdDTO.ts.html">dtos/PasswdDTO.ts</a>, <a href="dtos_PasswdDTO.ts.html#line9">line 9</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="PasswdDTO.PasswdDTO.html">PasswdDTO</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
