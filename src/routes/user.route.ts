@@ -86,15 +86,7 @@ class UserRouter implements IRoute {
         .updateById(req, res, next),
     );
 
-    /**
-     * @description delete user by id
-     */
-    this.router.delete(
-      this.pathIdParam,
-      isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .removeById(req, res, next),
-    );
+    
 
   }
 }
