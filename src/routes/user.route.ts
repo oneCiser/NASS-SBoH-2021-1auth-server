@@ -31,17 +31,7 @@ class UserRouter implements IRoute {
 
   createRoutes(): void {
 
-    /**
-     * @description get user by id
-     */
-    this.router.get(
-      this.pathIdParam,
-      isDefinedParamMiddleware(),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .getById(req, res, next),
-    );
-        this.router.get('/', (req: Request, res: Response, next: NextFunction) => ResourceUserController
-      .list(req, res, next));
+ 
 
     /**
      * @description send message for restore password
