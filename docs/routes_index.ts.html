@@ -7,7 +7,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation routes/user.route.ts</title>
+  <title>Documentation routes/index.ts</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -93,7 +93,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>routes/user.route.ts</h1>
+                    <h1>routes/index.ts</h1>
                 </header>
                 
 
@@ -102,140 +102,23 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {
-  NextFunction, Request, Response, Router,
-} from 'express';
-import { IRoute, IUser } from '../interfaces';
-import { ResourceUserController } from '../controller';
-import { 
-  isDefinedParamMiddleware, 
-  validationMiddleware, 
-  isRole,
-  isTokenTypeMiddleware
-} from '../middlewares';
-import { AuthDTO, EmailDTO, UserDTO, PasswdDTO } from '../dtos';
-import passport from 'passport';
-import {ROLES,tokenType} from '../utils'
+            <pre class="prettyprint source linenums"><code>import { Router } from 'express';
+import userRouter from './user.route';
 
+const router = Router();
+const prefix: string = '/api';
 /**
- *
- * Managament the routes of resource
- * @category Routes
- * @class Auth routes
- * @implements {IRoute}
+ * @name api/auth
+ * @function
+ * @description auth route
+ * @memberof module:routers/auth~usersRouter
+ * @inner
+ * @param {string} path - Express path
+ * @param {Router} route - routes of
  */
-class UserRouter implements IRoute {
-  public router = Router();
+router.use(`${prefix}/auth`, userRouter);
 
-  public pathIdParam = '/:id';
-
-  constructor() {
-    this.createRoutes();
-  }
-
-  createRoutes(): void {
-
- 
-
-    /**
-     * @name auth/forgot
-     * @function
-     * @description send email to restore password
-     * @memberof module:routers/auth~usersRouter
-     * @inner
-     * @param {string} path - Express path
-     * @param {callback} validationMiddleware - validation of req.body
-     * @param {callback} Controller - controller of forgot password
-     */
-    this.router.post(
-      '/forgot',
-      validationMiddleware(EmailDTO),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-      .forgotPassword(req, res, next)
-
-    )
-
-    /**
-     * @name auth/restore
-     * @function
-     * @description change forgot password
-     * @memberof module:routers/auth~usersRouter
-     * @inner
-     * @param {string} path - Express path
-     * @param {callback} authenticate - authenticate restore JWT
-     * @param {callback} isTokenTypeMiddleware - validate restore JWT
-     * @param {callback} Controller - controller of restore password
-     */
-    this.router.put(
-      '/restore',
-      passport.authenticate('jwt',{session:false}),
-      isTokenTypeMiddleware([tokenType.Restore]),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-      .restorePassword(req, res, next)
-    )
-
-    /**
-     * @name auth/forgot
-     * @function
-     * @description create user by admin
-     * @memberof module:routers/auth~usersRouter
-     * @inner
-     * @param {string} path - Express path
-     * @param {callback} validationMiddleware - validation of req.body
-     * @param {callback} authenticate - authenticate auth JWT
-     * @param {callback} isRole- validate role of user
-     * @param {callback} Controller - controller of create user
-     */
-    this.router.post(
-      '/',
-      validationMiddleware(UserDTO),
-      passport.authenticate('jwt',{session:false}),
-      isRole([ROLES.Admin]),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .create(req, res, next)
-    );
-
-    /**
-     * @name auth/login
-     * @function
-     * @description auth user
-     * @memberof module:routers/auth~usersRouter
-     * @inner
-     * @param {string} path - Express path
-     * @param {callback} validationMiddleware - validation of req.body
-     * @param {callback} Controller - controller of login
-     */
-    this.router.post(
-      '/login',
-      validationMiddleware(AuthDTO),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-      .login(req, res, next),
-    );
-
-    /**
-     * @name auth/changepasswd
-     * @function
-     * @description change password
-     * @memberof module:routers/auth~usersRouter
-     * @inner
-     * @param {string} path - Express path
-     * @param {callback} validationMiddleware - validation of req.body
-     * @param {callback} authenticate - authenticate auth JWT
-     * @param {callback} Controller - controller of change password
-     */
-    this.router.put(
-      'changepasswd',
-      validationMiddleware(PasswdDTO),
-      passport.authenticate('jwt',{session:false}),
-      (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .changePassword(req, res, next),
-    );
-
-    
-
-  }
-}
-export default new UserRouter().router;
+export default router;
 </code></pre>
         </article>
     </section>
