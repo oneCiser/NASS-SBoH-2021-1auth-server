@@ -14,25 +14,7 @@ import {encodeUser, hashPassword,tokenType, sendMail} from '../utils'
  * @class ResourceUserController
  */
 class ResourceUserController {
-  /**
-   *
-   * List all resources
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resources
-   * @memberof ResourceUserController
-   */
-  public static async list(req: Request, res: Response, next: NextFunction) {
-    try {
-      const resources: Array<IUser> = await ResourceService.list();
-      res.json(resources);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-      
-    }
-  }
+  
 
   /**
    *
@@ -147,30 +129,11 @@ class ResourceUserController {
     }
   }
 
-  /**
-   *
-   * Get resource by id
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resources
-   * @memberof ResourceUserController
-   */
-  public static async getById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      const resource: IUser | null = await ResourceService.getById(id);
-      if (!resource) throw new HttpException(404, 'Resource not found');
-      res.json(resource);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-    }
-  }
+  
 
   /**
    *
-   * Remove tasresource by id
+   * Update password by user
    * @static
    * @param {Request} req - The request
    * @param {Response} res - The response
@@ -178,34 +141,13 @@ class ResourceUserController {
    * @return {JSON} - A list of resourceS
    * @memberof ResourceUserController
    */
-  public static async removeById(req: Request, res: Response, next: NextFunction) {
+  public static async changePassword(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = req.params;
-      const resource: IUser | null = await ResourceService
-        .removeById(id);
-      if (!resource) throw new HttpException(404, 'Resource not found');
-      res.json(resource);
-    } catch (error) {
-      return next(new HttpException(error.status || 500, error.message));
-    }
-  }
-
-  /**
-   *
-   * Update resource by id
-   * @static
-   * @param {Request} req - The request
-   * @param {Response} res - The response
-   * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resourceS
-   * @memberof ResourceUserController
-   */
-  public static async updateById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
+      const token = <IPayLoad>req.user
+      const user = <IUser>token.user;
       const update = req.body;
       const resourceUpdated: IUser | null = await ResourceService
-        .updateById(id, update);
+        .updateById(user._id, update);
       if (!resourceUpdated) throw new HttpException(404, 'resource not found');
       res.json(resourceUpdated);
     } catch (error) {

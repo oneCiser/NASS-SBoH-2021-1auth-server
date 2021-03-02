@@ -9,7 +9,7 @@ import {
   isRole,
   isTokenTypeMiddleware
 } from '../middlewares';
-import { AuthDTO, EmailDTO, UserDTO } from '../dtos';
+import { AuthDTO, EmailDTO, UserDTO, PasswdDTO } from '../dtos';
 import passport from 'passport';
 import {ROLES,tokenType} from '../utils'
 
@@ -76,14 +76,14 @@ class UserRouter implements IRoute {
     );
 
     /**
-     * @description update user by id
+     * @description update user password by user
      */
     this.router.put(
-      this.pathIdParam,
-      isDefinedParamMiddleware(),
-      validationMiddleware(UserDTO, true),
+      'changepasswd',
+      validationMiddleware(PasswdDTO),
+      passport.authenticate('jwt',{session:false}),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .updateById(req, res, next),
+        .changePassword(req, res, next),
     );
 
     
