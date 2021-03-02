@@ -73,7 +73,7 @@ class UserRouter implements IRoute {
     /**
      * @name auth/forgot
      * @function
-     * @description send message for restore password
+     * @description create user by admin
      * @memberof module:routers/auth~usersRouter
      * @inner
      * @param {string} path - Express path
@@ -94,7 +94,7 @@ class UserRouter implements IRoute {
     /**
      * @name auth/login
      * @function
-     * @description send message for restore password
+     * @description auth user
      * @memberof module:routers/auth~usersRouter
      * @inner
      * @param {string} path - Express path
@@ -111,7 +111,7 @@ class UserRouter implements IRoute {
     /**
      * @name auth/changepasswd
      * @function
-     * @description send message for restore password
+     * @description change password
      * @memberof module:routers/auth~usersRouter
      * @inner
      * @param {string} path - Express path
