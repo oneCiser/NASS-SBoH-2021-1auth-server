@@ -34,7 +34,14 @@ class UserRouter implements IRoute {
  
 
     /**
-     * @description send message for restore password
+     * @name auth/forgot
+     * @function
+     * @description send email to restore password
+     * @memberof module:routers/auth~usersRouter
+     * @inner
+     * @param {string} path - Express path
+     * @param {callback} validationMiddleware - validation of req.body
+     * @param {callback} Controller - controller of forgot password
      */
     this.router.post(
       '/forgot',
@@ -44,7 +51,17 @@ class UserRouter implements IRoute {
 
     )
 
-
+    /**
+     * @name auth/restore
+     * @function
+     * @description change forgot password
+     * @memberof module:routers/auth~usersRouter
+     * @inner
+     * @param {string} path - Express path
+     * @param {callback} authenticate - authenticate restore JWT
+     * @param {callback} isTokenTypeMiddleware - validate restore JWT
+     * @param {callback} Controller - controller of restore password
+     */
     this.router.put(
       '/restore',
       passport.authenticate('jwt',{session:false}),
@@ -54,7 +71,16 @@ class UserRouter implements IRoute {
     )
 
     /**
-     * @description create new user
+     * @name auth/forgot
+     * @function
+     * @description send message for restore password
+     * @memberof module:routers/auth~usersRouter
+     * @inner
+     * @param {string} path - Express path
+     * @param {callback} validationMiddleware - validation of req.body
+     * @param {callback} authenticate - authenticate auth JWT
+     * @param {callback} isRole- validate role of user
+     * @param {callback} Controller - controller of create user
      */
     this.router.post(
       '/',
@@ -66,7 +92,14 @@ class UserRouter implements IRoute {
     );
 
     /**
-     * @description login user
+     * @name auth/login
+     * @function
+     * @description send message for restore password
+     * @memberof module:routers/auth~usersRouter
+     * @inner
+     * @param {string} path - Express path
+     * @param {callback} validationMiddleware - validation of req.body
+     * @param {callback} Controller - controller of login
      */
     this.router.post(
       '/login',
@@ -76,7 +109,15 @@ class UserRouter implements IRoute {
     );
 
     /**
-     * @description update user password by user
+     * @name auth/changepasswd
+     * @function
+     * @description send message for restore password
+     * @memberof module:routers/auth~usersRouter
+     * @inner
+     * @param {string} path - Express path
+     * @param {callback} validationMiddleware - validation of req.body
+     * @param {callback} authenticate - authenticate auth JWT
+     * @param {callback} Controller - controller of change password
      */
     this.router.put(
       'changepasswd',
