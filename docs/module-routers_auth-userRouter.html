@@ -5,7 +5,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation ResourceUserController</title>
+  <title>Documentation userRouter</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -90,8 +90,8 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Class</p>
-                    <h1>ResourceUserController</h1>
+                    <p>Namespace</p>
+                    <h1>userRouter</h1>
                 </header>
                 
 
@@ -102,7 +102,8 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ResourceUserController<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2>
+            <span class="ancestors"><a href="module-routers_auth.html">routers/auth</a>~</span>userRouter</h2>
         
     
 </header>
@@ -111,44 +112,8 @@
     <div class="container-overview">
     
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
 
-
-    
-    <h4 class="name" id="ResourceUserController">
-        <a class="href-link" href="#ResourceUserController">#</a>
         
-        <span class="code-name">
-            
-                new ResourceUserController<span class="signature">()</span><span class="type-signature"></span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        The controller of resources
-    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
@@ -184,38 +149,15 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_index.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line6">line 6</a>
+                <a href="routes_index.ts.html">routes/index.ts</a>, <a href="routes_index.ts.html#line9">line 9</a>
             </span>
         </p>
     
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
         
     
     </div>
@@ -243,18 +185,16 @@
 
 
     
-    <h4 class="name" id=".changePassword">
-        <a class="href-link" href="#.changePassword">#</a>
+    <h4 class="name" id="~auth/changepasswd">
+        <a class="href-link" href="#~auth/changepasswd">#</a>
         
             
-                <span class='tag'>async</span>
-            
-                <span class='tag'>static</span>
+                <span class='tag'>inner</span>
             
         
         <span class="code-name">
             
-                changePassword<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {JSON}</span>
+                auth/changepasswd<span class="signature">(path, validationMiddleware, authenticate, Controller)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -263,7 +203,7 @@
     
     
     <div class="description">
-        Update password by user
+        change password
     </div>
     
 
@@ -301,13 +241,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>path</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Request</span>
+<span class="param-type">string</span>
 
 
   
@@ -317,7 +257,7 @@
 
   
 
-  <td class="description last">The request</td>
+  <td class="description last">Express path</td>
 </tr>
 
 
@@ -326,13 +266,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>validationMiddleware</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Response</span>
+<span class="param-type">callback</span>
 
 
   
@@ -342,7 +282,7 @@
 
   
 
-  <td class="description last">The response</td>
+  <td class="description last">validation of req.body</td>
 </tr>
 
 
@@ -351,13 +291,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>next</code></td>
+      <td class="name"><code>authenticate</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">NextFunction</span>
+<span class="param-type">callback</span>
 
 
   
@@ -367,7 +307,32 @@
 
   
 
-  <td class="description last">The next middleware in queue</td>
+  <td class="description last">authenticate auth JWT</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>Controller</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">callback</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">controller of change password</td>
 </tr>
 
 
@@ -413,9 +378,9 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_user.route.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line136">line 136</a>
+                <a href="routes_user.route.ts.html">routes/user.route.ts</a>, <a href="routes_user.route.ts.html#line76">line 76</a>
             </span>
         </p>
     
@@ -438,31 +403,6 @@
 
 
 
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>- A list of resourceS</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">JSON</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
 
 
 
@@ -472,18 +412,16 @@
 
 
     
-    <h4 class="name" id=".create">
-        <a class="href-link" href="#.create">#</a>
+    <h4 class="name" id="~auth/forgot">
+        <a class="href-link" href="#~auth/forgot">#</a>
         
             
-                <span class='tag'>async</span>
-            
-                <span class='tag'>static</span>
+                <span class='tag'>inner</span>
             
         
         <span class="code-name">
             
-                create<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {JSON}</span>
+                auth/forgot<span class="signature">(path, validationMiddleware, Controller)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -492,7 +430,7 @@
     
     
     <div class="description">
-        create a new resource
+        send email to restore password
     </div>
     
 
@@ -530,13 +468,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>path</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Request</span>
+<span class="param-type">string</span>
 
 
   
@@ -546,7 +484,7 @@
 
   
 
-  <td class="description last">The request</td>
+  <td class="description last">Express path</td>
 </tr>
 
 
@@ -555,13 +493,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>validationMiddleware</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Response</span>
+<span class="param-type">callback</span>
 
 
   
@@ -571,7 +509,7 @@
 
   
 
-  <td class="description last">The response</td>
+  <td class="description last">validation of req.body</td>
 </tr>
 
 
@@ -580,13 +518,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>next</code></td>
+      <td class="name"><code>Controller</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">NextFunction</span>
+<span class="param-type">callback</span>
 
 
   
@@ -596,7 +534,7 @@
 
   
 
-  <td class="description last">The next middleware in queue</td>
+  <td class="description last">controller of forgot password</td>
 </tr>
 
 
@@ -642,9 +580,9 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_user.route.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line23">line 23</a>
+                <a href="routes_user.route.ts.html">routes/user.route.ts</a>, <a href="routes_user.route.ts.html#line22">line 22</a>
             </span>
         </p>
     
@@ -667,31 +605,6 @@
 
 
 
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>- A resource creted</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">JSON</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
 
 
 
@@ -701,18 +614,16 @@
 
 
     
-    <h4 class="name" id=".forgotPassword">
-        <a class="href-link" href="#.forgotPassword">#</a>
+    <h4 class="name" id="~auth/forgot">
+        <a class="href-link" href="#~auth/forgot">#</a>
         
             
-                <span class='tag'>async</span>
-            
-                <span class='tag'>static</span>
+                <span class='tag'>inner</span>
             
         
         <span class="code-name">
             
-                forgotPassword<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {JSON}</span>
+                auth/forgot<span class="signature">(path, validationMiddleware, authenticate, isRole-, Controller)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -721,7 +632,7 @@
     
     
     <div class="description">
-        send mail to restore password
+        create user by admin
     </div>
     
 
@@ -759,13 +670,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>path</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Request</span>
+<span class="param-type">string</span>
 
 
   
@@ -775,7 +686,7 @@
 
   
 
-  <td class="description last">The request</td>
+  <td class="description last">Express path</td>
 </tr>
 
 
@@ -784,13 +695,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>validationMiddleware</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Response</span>
+<span class="param-type">callback</span>
 
 
   
@@ -800,7 +711,7 @@
 
   
 
-  <td class="description last">The response</td>
+  <td class="description last">validation of req.body</td>
 </tr>
 
 
@@ -809,13 +720,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>next</code></td>
+      <td class="name"><code>authenticate</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">NextFunction</span>
+<span class="param-type">callback</span>
 
 
   
@@ -825,7 +736,57 @@
 
   
 
-  <td class="description last">The next middleware in queue</td>
+  <td class="description last">authenticate auth JWT</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>isRole-</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">callback</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">validate role of user</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>Controller</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">callback</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">controller of create user</td>
 </tr>
 
 
@@ -871,9 +832,9 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_user.route.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line85">line 85</a>
+                <a href="routes_user.route.ts.html">routes/user.route.ts</a>, <a href="routes_user.route.ts.html#line48">line 48</a>
             </span>
         </p>
     
@@ -896,31 +857,6 @@
 
 
 
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>- A email</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">JSON</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
 
 
 
@@ -930,18 +866,16 @@
 
 
     
-    <h4 class="name" id=".login">
-        <a class="href-link" href="#.login">#</a>
+    <h4 class="name" id="~auth/login">
+        <a class="href-link" href="#~auth/login">#</a>
         
             
-                <span class='tag'>async</span>
-            
-                <span class='tag'>static</span>
+                <span class='tag'>inner</span>
             
         
         <span class="code-name">
             
-                login<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {JSON}</span>
+                auth/login<span class="signature">(path, validationMiddleware, Controller)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -988,13 +922,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>path</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Request</span>
+<span class="param-type">string</span>
 
 
   
@@ -1004,7 +938,7 @@
 
   
 
-  <td class="description last">The request</td>
+  <td class="description last">Express path</td>
 </tr>
 
 
@@ -1013,13 +947,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>validationMiddleware</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Response</span>
+<span class="param-type">callback</span>
 
 
   
@@ -1029,7 +963,7 @@
 
   
 
-  <td class="description last">The response</td>
+  <td class="description last">validation of req.body</td>
 </tr>
 
 
@@ -1038,13 +972,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>next</code></td>
+      <td class="name"><code>Controller</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">NextFunction</span>
+<span class="param-type">callback</span>
 
 
   
@@ -1054,7 +988,7 @@
 
   
 
-  <td class="description last">The next middleware in queue</td>
+  <td class="description last">controller of login</td>
 </tr>
 
 
@@ -1100,9 +1034,9 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_user.route.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line48">line 48</a>
+                <a href="routes_user.route.ts.html">routes/user.route.ts</a>, <a href="routes_user.route.ts.html#line63">line 63</a>
             </span>
         </p>
     
@@ -1125,31 +1059,6 @@
 
 
 
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>- A JWT</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">JSON</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
 
 
 
@@ -1159,18 +1068,16 @@
 
 
     
-    <h4 class="name" id=".restorePassword">
-        <a class="href-link" href="#.restorePassword">#</a>
+    <h4 class="name" id="~auth/restore">
+        <a class="href-link" href="#~auth/restore">#</a>
         
             
-                <span class='tag'>async</span>
-            
-                <span class='tag'>static</span>
+                <span class='tag'>inner</span>
             
         
         <span class="code-name">
             
-                restorePassword<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {JSON}</span>
+                auth/restore<span class="signature">(path, authenticate, isTokenTypeMiddleware, Controller)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -1179,7 +1086,7 @@
     
     
     <div class="description">
-        if token of restore password is valid return a email
+        change forgot password
     </div>
     
 
@@ -1217,13 +1124,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>path</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Request</span>
+<span class="param-type">string</span>
 
 
   
@@ -1233,7 +1140,7 @@
 
   
 
-  <td class="description last">The request</td>
+  <td class="description last">Express path</td>
 </tr>
 
 
@@ -1242,13 +1149,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>authenticate</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Response</span>
+<span class="param-type">callback</span>
 
 
   
@@ -1258,7 +1165,7 @@
 
   
 
-  <td class="description last">The response</td>
+  <td class="description last">authenticate restore JWT</td>
 </tr>
 
 
@@ -1267,13 +1174,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>next</code></td>
+      <td class="name"><code>isTokenTypeMiddleware</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">NextFunction</span>
+<span class="param-type">callback</span>
 
 
   
@@ -1283,7 +1190,32 @@
 
   
 
-  <td class="description last">The next middleware in queue</td>
+  <td class="description last">validate restore JWT</td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>Controller</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">callback</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">controller of restore password</td>
 </tr>
 
 
@@ -1329,9 +1261,9 @@
 
     
         <p class="tag-source">
-            <a href="controller_ResourceUserController.ts.html" class="button">View Source</a>
+            <a href="routes_user.route.ts.html" class="button">View Source</a>
             <span>
-                <a href="controller_ResourceUserController.ts.html">controller/ResourceUserController.ts</a>, <a href="controller_ResourceUserController.ts.html#line105">line 105</a>
+                <a href="routes_user.route.ts.html">routes/user.route.ts</a>, <a href="routes_user.route.ts.html#line34">line 34</a>
             </span>
         </p>
     
@@ -1353,31 +1285,6 @@
 
 
 
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>- A email</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">JSON</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
 
 
 
