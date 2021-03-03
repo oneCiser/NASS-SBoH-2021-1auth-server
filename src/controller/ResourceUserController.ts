@@ -145,10 +145,11 @@ class ResourceUserController {
       const token = <IPayLoad>req.user
       const user = <IUser>token.user;
       const update = req.body;
+      update.password = hashPassword(update.password);
       const resourceUpdated: IUser | null = await ResourceService
         .updateById(user._id, update);
       if (!resourceUpdated) throw new HttpException(404, 'resource not found');
-      res.json(resourceUpdated);
+      res.json({username:resourceUpdated.username});
     } catch (error) {
       return next(new HttpException(error.status || 500, error.message));
     }

@@ -124,7 +124,7 @@ class UserRouter implements IRoute {
      * @param {callback} Controller - controller of change password
      */
     this.router.put(
-      'changepasswd',
+      '/changepasswd',
       validationMiddleware(PasswdDTO),
       passport.authenticate('jwt',{session:false}),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
