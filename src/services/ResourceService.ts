@@ -89,7 +89,7 @@ class ResourceService implements ICrud<IUser, string> {
         const res = sendMail(
           email,
           "Restore password",
-          `http://localhost:3000/api/auth/forgot/${token}`,
+          `http://192.168.56.1:3000/forgot/${token}`,
           "");
 
         return res;

@@ -24,7 +24,7 @@ class UserRouter implements IRoute {
   
   public router = Router();
 
-  public pathIdParam = '/:id';
+  
 
   constructor() {
     this.createRoutes();
@@ -108,7 +108,7 @@ class UserRouter implements IRoute {
       '/login',
       validationMiddleware(AuthDTO),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
-      .login(req, res, next),
+      .login(req, res, next)
     );
 
     /**
@@ -128,7 +128,7 @@ class UserRouter implements IRoute {
       validationMiddleware(PasswdDTO),
       passport.authenticate('jwt',{session:false}),
       (req: Request, res: Response, next: NextFunction) => ResourceUserController
-        .changePassword(req, res, next),
+        .changePassword(req, res, next)
     );
 
     
