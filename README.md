@@ -2,7 +2,7 @@
 
 # NASS-SBoH-2021-1-auth-server
 
-***
+
 
 ## Overview
 This project is an authentification server base in Express and JWT
@@ -75,14 +75,17 @@ npm start
 
 See the documentation in [auth-server](https://oneciser.github.io/NASS-SBoH-2021-1auth-server/index.html)
 
-## Template base
+## To Do list
++ Improve documentation
 
-Use template base express-typescript-template-generator - [template](https://www.npmjs.com/package/express-typescript-template-generator)
 
 ## License 
 This project is under the license [MIT](LICENSE.md)
 
 ## Author
 
-+ **Juan Francisco Javier** - *Desarrollador* - [@oneCiser](https://github.com/oneCiser)
++ **Juan Francisco Javier** - *Developer* - [@oneCiser](https://github.com/oneCiser)
+
+***
+This project was generate with [express-typescript-template-generator](https://www.npmjs.com/package/express-typescript-template-generator)
 
