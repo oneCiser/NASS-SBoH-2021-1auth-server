@@ -75,6 +75,11 @@ npm start
 
 See the documentation in [auth-server](https://oneciser.github.io/NASS-SBoH-2021-1auth-server/index.html)
 
+## Collaboration
+
+If you want to improve this project, you should follow the [code of conduct](CODE_OF_CONDUCT.md).  
+You can improve this project with a pull request
+
 ## To Do list
 + Improve documentation
 
