@@ -68,6 +68,10 @@ class ResourceUserController {
             token_type:tokenType.Auth
           }),
           username: property.username,
+          directory: user.directory,
+          maxsize: user.maxsize,
+          share_in: user.share_in,
+          share_out: user.share_out,
           type_user: user.type_user
         })
       }

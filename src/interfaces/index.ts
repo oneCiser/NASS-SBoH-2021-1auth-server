@@ -3,6 +3,7 @@ import IUser from './IUser';
 import IRoute from './IRoute';
 import IPayLoad from './IPayLoad';
 import IToken from './IToken';
+import IFile from './IFile';
 
 export {
   // eslint-disable-next-line import/prefer-default-export
@@ -10,5 +11,6 @@ export {
   IUser,
   IRoute,
   IPayLoad,
-  IToken
+  IToken,
+  IFile
 };

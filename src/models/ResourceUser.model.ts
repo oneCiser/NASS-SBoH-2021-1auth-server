@@ -1,8 +1,15 @@
 import mongoose, { Model, Schema } from 'mongoose';
-import { IUser } from '../interfaces';
+import { IUser, IFile } from '../interfaces';
 import bycrypt from 'bcrypt';
 import '../config/dotenv';
 import {hashPassword} from '../utils';
+
+const FileSchema: Schema<IFile> = new Schema({
+  name: {type:String, required:true},
+  url: {type:String, required:true},
+  size: {type:Number, required:true},
+  modified: {type:Date, default:Date.now}
+})
 /**
  * @category Model
  * @name ResourceUserSchema
@@ -15,7 +22,7 @@ const ResourceUserSchema: Schema<IUser> = new Schema({
   name: {type: String, required:true},
   type_user:{type:String, required:true},
   maxsize: {type:Number,required:true},
-  directory: {type:[],required:false},
+  directory: {type:[FileSchema],required:false},
   share_out: {type:[],required:false},
   share_in: {type:[],required:false}
 });
