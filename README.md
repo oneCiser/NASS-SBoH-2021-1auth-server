@@ -90,6 +90,11 @@ This project is under the license [MIT](LICENSE.md)
 ## Author
 
 + **Juan Francisco Javier** - *Developer* - [@oneCiser](https://github.com/oneCiser)
++ + **Juan Antonio Neuenschwander Martinez** - *Developer* - [@jneuenschwander](https://github.com/jneuenschwander)
++ + **Kevin Steve Ojeda Carrillo** - *Developer* - [@kevinojeda](https://github.com/kevinojeda)
++ + **Juan Sebastian Veloza Ceron** - *Developer* - 
++ +  **Karen Dayana Luna Sanabria** - *Developer* - 
+
 
 ***
 This project was generate with [express-typescript-template-generator](https://www.npmjs.com/package/express-typescript-template-generator)
