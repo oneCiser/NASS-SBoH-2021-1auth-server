@@ -67,6 +67,7 @@ class ResourceUserController {
             type_user: user.type_user,
             token_type:tokenType.Auth
           }),
+          _id:user._id,
           username: property.username,
           directory: user.directory,
           maxsize: user.maxsize,
