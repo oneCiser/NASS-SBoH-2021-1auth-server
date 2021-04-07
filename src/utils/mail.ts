@@ -26,6 +26,7 @@ const sendMail = async (to:string, subject:string, text:string, html:string) => 
           await transporter.sendMail(opt)
           return true;
     } catch (error) {
+      console.log(error)
         return false;
     }
 
