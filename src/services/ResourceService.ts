@@ -86,7 +86,7 @@ class ResourceService implements ICrud<IUser, string> {
           createdAt:expire
         });
         
-        const res = sendMail(
+        const res = await sendMail(
           email,
           "Restore password",
           `http://nass.bucaramanga.upb.edu.co/forgot/${token}`,

@@ -7,7 +7,7 @@ import '../config/dotenv';
  * @param {string} text 
  * @param {string} html 
  */
-const sendMail = (to:string, subject:string, text:string, html:string) => {
+const sendMail = async (to:string, subject:string, text:string, html:string) => {
     try {
         const transporter = nodemailer.createTransport({
             service:'gmail',
@@ -23,7 +23,7 @@ const sendMail = (to:string, subject:string, text:string, html:string) => {
             text: text,
             html: html
           }
-          transporter.sendMail(opt)
+          await transporter.sendMail(opt)
           return true;
     } catch (error) {
         return false;
