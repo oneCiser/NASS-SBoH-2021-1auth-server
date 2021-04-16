@@ -1,7 +1,7 @@
 import bycrypt from 'bcrypt';
 import '../config/dotenv';
 /**
- * @description hash a password
+ * @description Hash a password
  * @param {string} password 
  * @return {string} return a hash string
  */

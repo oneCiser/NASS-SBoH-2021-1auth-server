@@ -2,10 +2,10 @@ import { IsString, IsNotEmpty} from 'class-validator';
 
 /**
  *
- * 
+ * @description Class to validate fields of an change password request
  * @category DTOs
  * @class PasswdDTO
- * @param {string} password password of user
+ * @param {string} password Password of user
  */
 class PasswdDTO {
     @IsString()
@@ -14,7 +14,7 @@ class PasswdDTO {
 
     /**
      * 
-     * @param password password of user
+     * @param password Password of user
      * @memberof PasswdDTO
      */
     constructor(password:string){

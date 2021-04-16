@@ -5,7 +5,7 @@ import { logger } from '../utils';
 
 /**
  *
- * The clas for database managament
+ * The class for database managament
  * @class Database
  *
  */

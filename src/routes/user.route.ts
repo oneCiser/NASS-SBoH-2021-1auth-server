@@ -37,7 +37,7 @@ class UserRouter implements IRoute {
      * @name auth/forgot
      * @function
      * @memberof module:routers/auth~userRouter
-     * @description send email to restore password
+     * @description Send email to restore password
      * @inner
      * @param {string} path - Express path
      * @param {callback} validationMiddleware - validation of req.body
@@ -55,7 +55,7 @@ class UserRouter implements IRoute {
      * @name auth/restore
      * @category Routes
      * @function
-     * @description change forgot password
+     * @description Change forgot password
      * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
@@ -75,7 +75,7 @@ class UserRouter implements IRoute {
      * @name auth/forgot
      * @category Routes
      * @function
-     * @description create user by admin
+     * @description Create user by admin
      * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
@@ -97,7 +97,7 @@ class UserRouter implements IRoute {
      * @name auth/login
      * @category Routes
      * @function
-     * @description auth user
+     * @description Auth user
      * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path
@@ -115,7 +115,7 @@ class UserRouter implements IRoute {
      * @name auth/changepasswd
      * @category Routes
      * @function
-     * @description change password
+     * @description Change password
      * @memberof module:routers/auth~userRouter
      * @inner
      * @param {string} path - Express path

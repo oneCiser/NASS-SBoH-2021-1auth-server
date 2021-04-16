@@ -1,6 +1,6 @@
 
 /**
- * @enum type of token
+ * @enum Type of token
  */
 const tokenType = {
     Auth:'AUTH',

@@ -25,7 +25,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
+   * @description Get all users
    * @return {Promise<Array<IUser>>}  A list of resourceS
    * @memberof ResourceRepository
    */
@@ -35,7 +35,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
+   * @description Get user by id
    * @param {string} id - The id to find
    * @return {Promise<IUser>}  A resource
    * @memberof Resourceepository
@@ -44,7 +44,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
     return ResourceUser.findById(id);
   }
   /**
-   * 
+   * @description Get user by username
    * @param {string} username - username
    * @return {Promise<IUser>} resource user
    * @memberof Resourceepository
@@ -65,7 +65,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
+   *@description Remove resource by object
    * @param {IUser} resource - The resource to remove
    * @return {Promise<IUser>}  A resource removed
    * @memberof ResourceRepository
@@ -77,7 +77,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
+   * @description Remove resource by id
    * @param {string} id - The id to find
    * @return {Promise<IUser>}  A resource removed
    * @memberof ResourceRepository
@@ -90,8 +90,8 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
-   * @param {IUser} resource - The resource to updated
+   * @description Update user fields
+   * @param {IUser} resource The resource to updated
    * @return {Promise<IUser>}  A resource updated
    * @memberof ResourceRepository
    */
@@ -102,7 +102,7 @@ class ResourceUserRepository implements ICrud<IUser, string> {
 
   /**
    *
-   *
+   * @description Update user by id
    * @param {string} id - The id to find
    * @param {IUser} resource - The resource to updated
    * @return {Promise<IUser>} A resource updated

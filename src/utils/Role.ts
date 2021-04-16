@@ -1,6 +1,6 @@
 
 /**
- * @enum roles of user
+ * @enum Roles of user
  */
 const ROLES = {
     Admin:'ADMIN',

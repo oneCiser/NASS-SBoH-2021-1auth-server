@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 /**
- * Define a interface of resource to managament with mongoose
+ * Define a interface of file resource
  * @category Interfaces
  * @interface IFile
  * @extends {Document}

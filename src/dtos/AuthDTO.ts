@@ -3,11 +3,11 @@ import { IsString, IsNotEmpty} from 'class-validator';
 
 /**
  *
- * 
+ * @description Class to validate fields of an auth request
  * @category DTOs
  * @class AuthDTO
- * @param {string} username- the tile of resource
- * @param {string} password
+ * @param {string} username The username
+ * @param {string} password The password
  */
 class AuthDTO {
     @IsString()
@@ -19,8 +19,8 @@ class AuthDTO {
 
     /**
      * 
-     * @param username username of user
-     * @param password password of user
+     * @param username Username of user
+     * @param password Password of user
      * @memberof AuthDTO
      */
     constructor(username:string, password:string){

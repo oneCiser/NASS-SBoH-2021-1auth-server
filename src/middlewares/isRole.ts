@@ -6,9 +6,9 @@ import { HttpException } from '../exceptions';
 
 /**
  *
- * Valid of Role
+ * Validate the role that can acces in end point
  * @category Middlewares
- * @param {any[]} roles - roles of the route
+ * @param {any[]} roles Roles of the route
  * @return {*}  {RequestHandler}
  */
 const isRole = (roles:any[]):RequestHandler => (req: Request, res: Response, next: NextFunction) =>

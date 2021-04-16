@@ -8,7 +8,7 @@ import '../config/dotenv';
 
 /**
  * @memberof JWTStrategy
- * @type options of jwt strategy
+ * @type Options of jwt strategy
  */
 const opt: StrategyOptions = {
     jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -16,7 +16,7 @@ const opt: StrategyOptions = {
 }
 /**
  * @memberof JWTStrategy
- * @description strategy of jwt in passport
+ * @description Strategy of jwt in passport
  */
 export default new Strategy(opt,
     async function(jwt_payload, done) {

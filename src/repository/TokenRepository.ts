@@ -14,7 +14,7 @@ import { Token } from '../models';
 class TokenRepository implements ICrud<IToken, string> {
   /**
    *
-   *
+   * @description Create new token
    * @param {IToken} task - The resource to create
    * @return {Promise<IToken>}  A resource created
    * @memberof TokenRepository
@@ -25,7 +25,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description List all token
    * @return {Promise<Array<IToken>>}  A list of resourceS
    * @memberof ResourceRepository
    */
@@ -35,7 +35,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description Get token by id
    * @param {string} id - The id to find
    * @return {Promise<IToken>}  A resource
    * @memberof Resourceepository
@@ -43,16 +43,11 @@ class TokenRepository implements ICrud<IToken, string> {
   async getById(id: string): Promise<IToken | null> {
     return Token.findById(id);
   }
-  /**
-   * 
-   * @param {string} username - username
-   * @return {Promise<IToken>} resource user
-   * @memberof Resourceepository
-   */
+  
  
 
   /**
-   * 
+   * @description Get token by email
    * @param {string} email
    * @return {Promise<IToken>} reource user
    * @memberof Resourceepository 
@@ -63,7 +58,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description Remove token
    * @param {IToken} resource - The resource to remove
    * @return {Promise<IToken>}  A resource removed
    * @memberof ResourceRepository
@@ -75,7 +70,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description Remove token by id
    * @param {string} id - The id to find
    * @return {Promise<IToken>}  A resource removed
    * @memberof ResourceRepository
@@ -88,7 +83,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description Update token
    * @param {IToken} resource - The resource to updated
    * @return {Promise<IToken>}  A resource updated
    * @memberof ResourceRepository
@@ -100,7 +95,7 @@ class TokenRepository implements ICrud<IToken, string> {
 
   /**
    *
-   *
+   * @description Update token by id
    * @param {string} id - The id to find
    * @param {IToken} resource - The resource to updated
    * @return {Promise<IToken>} A resource updated

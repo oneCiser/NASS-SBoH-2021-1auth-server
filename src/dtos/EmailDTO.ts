@@ -2,10 +2,10 @@ import { IsString, IsNotEmpty} from 'class-validator';
 
 /**
  *
- * 
+ * @description Class to validate fields of an restore password request
  * @category DTOs
  * @class EmailDTO
- * @param {string} email email of the user
+ * @param {string} email Email of the user
  */
 class EmailDTO {
     @IsString()
@@ -14,7 +14,7 @@ class EmailDTO {
 
     /**
      * 
-     * @param email email of the user
+     * @param email Email of the user
      * @memberof EmailDTO
      */
     constructor(email:string){

@@ -6,7 +6,7 @@ import bycrypt from 'bcrypt';
 /**
  * @category Model
  * @name TokenSchema
- * @description schema of token restore
+ * @description Schema of token restore
  */
 const TokenSchema: Schema<IToken> = new Schema({
   email: {type: String, required:true, unique: true},
@@ -14,14 +14,14 @@ const TokenSchema: Schema<IToken> = new Schema({
   createdAt: { type: Date,  default: Date.now }
 });
 /**
- * @description index with time to live, after one hour de document will be remove
+ * @description Index with time to live, after one hour de document will be remove
  */
 TokenSchema.index({createdAt: 1},{expireAfterSeconds: 3600});
 
 /**
- * @description compare the hash with email and date of restore token
- * @param {string} email - email of user
- * @param {Date} iat - date of restore token
+ * @description Compare the hash with email and date of restore token
+ * @param {string} email Email of user
+ * @param {Date} iat Date of restore token
  */
 TokenSchema.methods.isValidToken = async function (email:string, iat:Date) {
   const token = this;

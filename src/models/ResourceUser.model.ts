@@ -13,7 +13,7 @@ const FileSchema: Schema<IFile> = new Schema({
 /**
  * @category Model
  * @name ResourceUserSchema
- * @description schema of user
+ * @description Schema of user
  */
 const ResourceUserSchema: Schema<IUser> = new Schema({
   username: { type: String, required: true, unique: true },
@@ -27,7 +27,7 @@ const ResourceUserSchema: Schema<IUser> = new Schema({
   share_in: {type:[],required:false}
 });
 /**
- * @description genera un hash de el password cuando se crea el usuario o se actualiza la clave
+ * @description Generate a hash of password when user is create or update the field
  */
 ResourceUserSchema.pre('save', async function (next) {
   let user = <IUser>this;

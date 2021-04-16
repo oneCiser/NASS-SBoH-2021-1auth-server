@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 /**
- * Define a interface of resource to managament with mongoose
+ * Define a interface of user
  * @category Interfaces
  * @interface IUser
  * @extends {Document}

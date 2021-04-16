@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 /**
- * the structure of token
+ * The structure of token
  * @category Interfaces
  * @interface IToken
  * @extends {Document}

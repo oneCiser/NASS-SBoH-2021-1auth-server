@@ -9,7 +9,7 @@ import {encodeUser, hashPassword,tokenType, sendMail} from '../utils'
 
 /**
  *
- * The controller of resources
+ * The controller of user resource
  * @category Controllers
  * @class ResourceUserController
  */
@@ -140,7 +140,7 @@ class ResourceUserController {
    * @param {Request} req - The request
    * @param {Response} res - The response
    * @param {NextFunction} next - The next middleware in queue
-   * @return {JSON} - A list of resourceS
+   * @return {JSON} - A list of resources
    * @memberof ResourceUserController
    */
   public static async changePassword(req: Request, res: Response, next: NextFunction) {
